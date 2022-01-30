@@ -3,11 +3,13 @@
 
 # TEAM
 
-    <name> -- <role> -- <twitter>
+    Simon Gussenhoven - https://www.linkedin.com/in/simon-gussenhoven/
 
 # THANKS
 
-    <name>
+    https://unsplash.com/ for the images 
+    https://html5boilerplate.com for the boilerplate
+
 
 # TECHNOLOGY COLOPHON
 

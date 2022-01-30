@@ -261,12 +261,8 @@ textarea {
   }
 }
 
-@import url('https://fonts.googleapis.com/css2?family=Georama&display=swap');
-body {
-  font-family: 'Georama', sans-serif;
-}
 
-@import url("https://fonts.googleapis.com/css2?family=Georama&display=swap");
+
 .index-header {
   background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.5)), to(rgba(0, 0, 0, 0.1))), url(/img/mountains2.jpg);
 }
@@ -280,7 +276,7 @@ body {
   background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.5)), to(rgba(0, 0, 0, 0.1))), url(/img/norway.jpg);
 }
 .research-header {
-  background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.5)), to(rgba(0, 0, 0, 0.1))), url(/img/france2.jpg);
+  background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.5)), to(rgba(0, 0, 0, 0.1))), url(/img/mountains.jpg);
 }
 .contact-header {
   background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.5)), to(rgba(0, 0, 0, 0.1))), url(/img/seeds.jpg);
@@ -301,7 +297,6 @@ body {
 }
 
 .lead {
-  font-family: raleway;
   font-weight: 100;
   margin-top: -10px;
 }
@@ -324,9 +319,6 @@ header, section, nav {
   scroll-snap-align: start;
 }
 
-body {
-  font-family: 'Georama', sans-serif;
-}
 
 @media only screen and (max-width: 600px) {
   .display-1 {
@@ -353,4 +345,11 @@ body {
   .display-3 {
     font-size: 4.5rem;
   }
+}
+@import url('https://fonts.googleapis.com/css2?family=Georama&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Comforter&family=Georama&display=swap');
+html {
+  
+  font-family: 'Georama', sans-serif;
+  font-family: 'Comforter', cursive !important;
 }
