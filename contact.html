@@ -4,25 +4,25 @@
 <head>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"
     integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
-
   <meta charset="utf-8">
   <title></title>
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-
   <meta property="og:title" content="">
   <meta property="og:type" content="">
   <meta property="og:url" content="">
   <meta property="og:image" content="">
-
   <link rel="manifest" href="site.webmanifest">
   <link rel="apple-touch-icon" href="icon.png">
   <!-- Place favicon.ico in the root directory -->
-
   <link rel="stylesheet" href="css/normalize.css">
   <link rel="stylesheet" href="css/main.css">
-
   <meta name="theme-color" content="#fafafa">
+  <style>
+    .error {
+      border: 1px solid red
+    }
+  </style>
 </head>
 
 <body>
@@ -60,36 +60,129 @@
   <header class="jumbotron jumbotron-fluid min-vh-100 contact-header" id="top">
     <div class="container p-md-3 d-flex justify-content-center flex-column text-center">
       <h1 class="display-1">Contact</h1>
-      <form method="post" name="Contact" data-netlify="true" data-netlify-honeypot="bot-field"><input
-          type="hidden" name="form-name" value="Contact">
+      <form method="post" name="Contact" data-netlify="true" data-netlify-honeypot="bot-field"><input type="hidden"
+          name="form-name" value="Contact">
         <div class="container d-flex justify-content-center text-left">
-          <div class="border shadow col-12 col-md-6 p-5 bg-light text-dark justify-content-between rounded">
+          <div class="border shadow col-12 col-md-7 p-5 bg-light text-dark justify-content-between rounded">
             <p hidden=""><label>Leave the following field empty: <input type="text" name="bot-field"></label></p>
             <div class="row d-flex">
-              <div class="col-12 col-md-6 my-3 px-3"><label for="name">Naam:</label></div>
-              <div class="col-12 col-md-5 my-3"><input class="w-100" type="text" name="name" id="name"></div>
+              <div class="col-12 col-md-6 my-3 px-3">
+                <label for=" name">Naam: *</label>
+              </div>
+              <div class="col-12 col-md-5 my-3">
+                <input id="name" class="w-100" type="text" name="name" onfocusout="validateName(event)" onchange="checkAllValid()" autofocus>
+              </div>
             </div>
             <div class="row d-flex">
-              <div class="col-12 col-md-6 my-3 px-3"><label for="email">Emailadres:</label></div>
-              <div class="col-12 col-md-5 my-3"><input class="w-100" type="email" name="email" id="email"></div>
+              <div class="col-12 col-md-6 my-3 px-3">
+                <label for="email">Emailadres: *</label>
+              </div>
+              <div class="col-12 col-md-5 my-3">
+
+                <input class="w-100" type="email" name="email" id="email" onfocusout="validateEmail(event)" onchange="checkAllValid()">
+              </div>
             </div>
             <div class="row d-flex">
-              <div class="col-12 col-md-6 my-3 px-3"><label for="company">Bedrijfsnaam:</label></div>
-              <div class="col-12 col-md-5 my-3"><input class="w-100" type="text" name="company" id="company"></div>
+              <div class="col-12 col-md-6 my-3 px-3">
+                <label for="company">Bedrijfsnaam:</label>
+              </div>
+              <div class="col-12 col-md-5 my-3 flex-row d-flex">
+
+                <input class="w-100" type="text" name="company" id="company">
+
+              </div>
             </div>
             <div class="row d-flex">
-              <div class="col-12 col-md-5 my-3 px-3"><label for="message">Bericht:</label></div>
-              <div class="col-12 col-md-6 my-3"><textarea class="w-100" type="text" name="message" id="message"
-                  rows="4"></textarea></div>
+              <div class="col-12 col-md-5 my-3 px-3">
+                <label for="message">Bericht: *</label>
+              </div>
+              <div class="col-12 col-md-6 my-3">
+                <textarea class="w-100" type="text" name="message" id="message" rows="4" onfocusout="validateMessage(event)" onchange="checkAllValid()">
+                </textarea>
+              </div>
             </div>
-            <div class="text-right my-3 mr-5"><button type="submit"
-                class="btn btn-secondary">Verzenden</button></div>
+            <div class="row d-flex flex-row my-3 mr-5 w-100">
+              <span class="col-12 col-md-6 text-left invisible" id="error">⚠️ Vul a.u.b. alle verplichte velden (correct) in.</span>
+              <div class="col-12 col-md-6 text-right"><button type="submit" class="btn btn-danger" id="submit" disabled>Verzenden</button></div>
+            </div>
           </div>
         </div>
       </form>
     </div>
   </header>
+  <!--Form validation script-->
+  <script>
+    const error = document.getElementById("error")
+    const submit = document.getElementById("submit")
+    let nameIsValid = false
+    let mailIsValid = false
+    let messageIsValid = false
 
+    //Validation for all params
+    const checkAllValid = () => {
+      if ((nameIsValid && mailIsValid) && messageIsValid) {
+        submit.disabled = false
+        error.classList.add("visible")
+      }
+      else {
+        submit.disabled = true
+        error.classList.add("invisible")
+      }
+      console.log(nameIsValid)
+      console.log(mailIsValid)
+      console.log(messageIsValid)
+    }
+
+    //validation for name
+    const name = document.getElementById("name")
+    const validateName = (event) => {
+      if (event.target.value === "") {
+        name.classList.add("error")
+        nameIsValid = false
+        checkAllValid()
+      }
+      else {
+        name.classList.remove("error")
+        nameIsValid = true
+        checkAllValid()
+      }
+    }
+
+    //validation for email
+    const validateEmail = (event) => {
+      if (event.target.value
+        .toLowerCase()
+        .match(
+          /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+        )) {
+        email.classList.remove("error")
+        mailIsValid = true
+        checkAllValid()
+      }
+      else {
+        email.classList.add("error")
+        mailIsValid = false
+        checkAllValid()
+      }
+    };
+
+    //validation for message
+    const message = document.getElementById("message")
+    const validateMessage = (event) => {
+      if (event.target.value === "") {
+        message.classList.add("error")
+        messageIsValid = false
+        checkAllValid()
+      }
+      else {
+        message.classList.remove("error")
+        messageIsValid = true
+        checkAllValid()
+      }
+    }
+
+
+  </script>
   <!-- bootstrap scripts-->
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
     integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
@@ -97,12 +190,6 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF"
     crossorigin="anonymous"></script>
-
-  <!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->
-  <script>
-    window.ga = function () { ga.q.push(arguments) }; ga.q = []; ga.l = +new Date;
-    ga('create', 'UA-XXXXX-Y', 'auto'); ga('set', 'anonymizeIp', true); ga('set', 'transport', 'beacon'); ga('send', 'pageview')
-  </script>
   <script src="https://www.google-analytics.com/analytics.js" async></script>
 </body>
 
