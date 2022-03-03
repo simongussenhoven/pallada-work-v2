@@ -310,46 +310,68 @@ section {
   scroll-snap-align: center;
 }
 
-html {
+/* html {
   -ms-scroll-snap-type: y mandatory;
       scroll-snap-type: y mandatory;
-}
+} */
 
 header, section, nav {
   scroll-snap-align: start;
 }
 
-
-@media only screen and (max-width: 600px) {
-  .display-1 {
-    font-size: 2.2rem;
-  }
-  .display-3 {
-    font-size: 2.3rem;
-  }
-}
-
-@media only screen and (min-width: 601px) {
-  .display-1 {
-    font-size: 4rem;
-  }
-  .display-3 {
-    font-size: 3.5rem;
-  }
-}
-
-@media only screen and (min-width: 991px) {
-  .display-1 {
-    font-size: 6rem;
-  }
-  .display-3 {
-    font-size: 4.5rem;
-  }
-}
 @import url('https://fonts.googleapis.com/css2?family=Georama&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Comforter&family=Georama&display=swap');
-html {
+
+
+@media (min-width: 1000px) {
+  .display-header {
+    font-size: 4.5rem;
+  }
+  .display-subheader {
+    font-size: 3.7rem
+  }
   
-  font-family: 'Georama', sans-serif;
-  font-family: 'Comforter', cursive !important;
+}
+
+@media (min-width: 768px) {
+  .display-header {
+    font-size: 4rem;
+  }
+  .display-subheader {
+    font-size: 3rem
+  }
+  
+}
+
+/* 
+  ##Device = Tablets, Ipads (landscape)
+  ##Screen = B/w 768px to 1024px
+*/
+
+@media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+  
+  /* CSS */
+  
+}
+
+/* 
+  ##Device = Low Resolution Tablets, Mobiles (Landscape)
+  ##Screen = B/w 481px to 767px
+*/
+
+@media (min-width: 481px) and (max-width: 767px) {
+  
+  /* CSS */
+  
+}
+
+/* 
+  ##Device = Most of the Smartphones Mobiles (Portrait)
+  ##Screen = B/w 320px to 479px
+*/
+
+@media (min-width: 320px) and (max-width: 480px) {
+  
+  /* CSS */
+  
 }

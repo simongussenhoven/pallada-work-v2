@@ -62,38 +62,39 @@
       <h1 class="display-1">Contact</h1>
       <form method="post" name="Contact" data-netlify="true" data-netlify-honeypot="bot-field"><input type="hidden"
           name="form-name" value="Contact">
+          <p>Wil je meer informatie of een keer een kop koffiedrinken? Stuur dan een berichtje!</p>
         <div class="container d-flex justify-content-center text-left">
-          <div class="border shadow col-12 col-md-7 p-5 bg-light text-dark justify-content-between rounded">
+          <div class="border shadow col-12 col-md-10 col-lg-8 col-xl-6 p-5 bg-light text-dark justify-content-between rounded">
             <p hidden=""><label>Leave the following field empty: <input type="text" name="bot-field"></label></p>
             <div class="row d-flex">
-              <div class="col-12 col-md-6 my-3 px-3">
+              <div class="col-12 col-md-6 my-1 my-md-3 px-3">
                 <label for=" name">Naam: *</label>
               </div>
-              <div class="col-12 col-md-5 my-3">
+              <div class="col-12 col-md-5 my-1 my-md-3">
                 <input id="name" class="w-100" type="text" name="name" onfocusout="validateName(event)" onchange="checkAllValid()" autofocus>
               </div>
             </div>
             <div class="row d-flex">
-              <div class="col-12 col-md-6 my-3 px-3">
+              <div class="col-12 col-md-6 my-1 my-md-3 px-3">
                 <label for="email">Emailadres: *</label>
               </div>
-              <div class="col-12 col-md-5 my-3">
+              <div class="col-12 col-md-5 my-1 my-md-3">
 
                 <input class="w-100" type="email" name="email" id="email" onfocusout="validateEmail(event)" onchange="checkAllValid()">
               </div>
             </div>
             <div class="row d-flex">
-              <div class="col-12 col-md-6 my-3 px-3">
+              <div class="col-12 col-md-6 my-1 my-md-3 px-3">
                 <label for="company">Bedrijfsnaam:</label>
               </div>
-              <div class="col-12 col-md-5 my-3 flex-row d-flex">
+              <div class="col-12 col-md-5 my-1 my-md-3 flex-row d-flex">
 
                 <input class="w-100" type="text" name="company" id="company">
 
               </div>
             </div>
             <div class="row d-flex">
-              <div class="col-12 col-md-5 my-3 px-3">
+              <div class="col-12 col-md-5 my-1 my-md-3 px-3">
                 <label for="message">Bericht: *</label>
               </div>
               <div class="col-12 col-md-6 my-3">
@@ -103,7 +104,7 @@
             </div>
             <div class="row d-flex flex-row my-3 mr-5 w-100">
               <span class="col-12 col-md-6 text-left invisible" id="error">⚠️ Vul a.u.b. alle verplichte velden (correct) in.</span>
-              <div class="col-12 col-md-6 text-right"><button type="submit" class="btn btn-danger" id="submit" disabled>Verzenden</button></div>
+              <div class="col-12 col-md-6 text-center text-md-right"><button type="submit" class="btn btn-danger" id="submit" disabled>Verzenden</button></div>
             </div>
           </div>
         </div>
