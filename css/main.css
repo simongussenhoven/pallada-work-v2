@@ -269,6 +269,9 @@ textarea {
 .index-content1 {
   background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.5)), to(rgba(0, 0, 0, 0.1))), url(/img/tree.jpg);
 }
+.index-content2 {
+  background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.5)), to(rgba(0, 0, 0, 0.1))), url(/img/norway2.jpg);
+}
 .develop-header {
   background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.5)), to(rgba(0, 0, 0, 0.1))), url(/img/france2.jpg);
 }
@@ -310,22 +313,23 @@ section {
   scroll-snap-align: center;
 }
 
-/* html {
-  -ms-scroll-snap-type: y mandatory;
-      scroll-snap-type: y mandatory;
-} */
+html {
+}
 
 header, section, nav {
   scroll-snap-align: start;
 }
 
-@import url('https://fonts.googleapis.com/css2?family=Georama&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Comforter&family=Georama&display=swap');
-
+.display-header {
+  font-size: 3rem;
+}
+.display-subheader {
+  font-size: 2rem
+}
 
 @media (min-width: 1000px) {
   .display-header {
-    font-size: 4.5rem;
+    font-size: 5rem;
   }
   .display-subheader {
     font-size: 3.7rem
@@ -343,35 +347,13 @@ header, section, nav {
   
 }
 
-/* 
-  ##Device = Tablets, Ipads (landscape)
-  ##Screen = B/w 768px to 1024px
-*/
 
-@media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+@media (min-width: 450px) {
   
-  /* CSS */
-  
-}
-
-/* 
-  ##Device = Low Resolution Tablets, Mobiles (Landscape)
-  ##Screen = B/w 481px to 767px
-*/
-
-@media (min-width: 481px) and (max-width: 767px) {
-  
-  /* CSS */
-  
-}
-
-/* 
-  ##Device = Most of the Smartphones Mobiles (Portrait)
-  ##Screen = B/w 320px to 479px
-*/
-
-@media (min-width: 320px) and (max-width: 480px) {
-  
-  /* CSS */
-  
+  .display-header {
+    font-size: 3.7rem;
+  }
+  .display-subheader {
+    font-size: 2.5rem
+  }
 }
